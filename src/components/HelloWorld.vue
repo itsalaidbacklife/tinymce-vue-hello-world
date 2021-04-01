@@ -3,7 +3,7 @@
     <h1>Tiny MCE + Vue Hello World</h1>
     <editor
       v-model="editorVal"
-      api-key="no-api-key"
+      :api-key="apiKey"
        :init="{
          height: 300,
          menubar: false,
@@ -40,6 +40,11 @@ export default {
       editorVal: null,
     }
   },
+  computed: {
+    apiKey() {
+      return process.env.VUE_APP_TINY_MCE_KEY || 'no-api-key'
+    }
+  }
 };
 </script>
 
